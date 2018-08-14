@@ -1,6 +1,5 @@
 package models;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +8,7 @@ public class File {
 
 	private int id;
 	private String name;
-	private String extension;
+	private FileExtensionType extension;
 	private int size;
 	private Folder folder;
 
@@ -17,7 +16,7 @@ public class File {
 	public File() {
 	}
 
-	public File(String name, String extension, int size, Folder folder) {
+	public File(String name, FileExtensionType extension, int size, Folder folder) {
 		this.name = name;
 		this.extension = extension;
 		this.size = size;
@@ -44,12 +43,12 @@ public class File {
 		this.name = name;
 	}
 
-	@Column(name = "extension")
-	public String getExtension() {
+	@Enumerated(value = EnumType.STRING)
+	public FileExtensionType getExtension() {
 		return extension;
 	}
 
-	public void setExtension(String extension) {
+	public void setExtension(FileExtensionType extension) {
 		this.extension = extension;
 	}
 

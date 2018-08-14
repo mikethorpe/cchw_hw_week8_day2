@@ -1,6 +1,7 @@
 import db.DBFolder;
 import db.DBHelper;
 import models.File;
+import models.FileExtensionType;
 import models.Folder;
 
 import java.util.List;
@@ -15,19 +16,19 @@ public class Runner {
 		Folder myJunkFolder = new Folder("Junk");
 		DBHelper.save(myJunkFolder);
 
-		File myCode = new File("myCode", ".java", 240, superFolder);
+		File myCode = new File("myCode", FileExtensionType.JAVA, 240, superFolder);
 		DBHelper.save(myCode);
 
-		File toDo = new File("Todo", ".txt", 40, superFolder);
+		File toDo = new File("Todo", FileExtensionType.TXT, 40, superFolder);
 		DBHelper.save(toDo);
 
 		myCode.setName("myFantasticCode");
 		DBHelper.update(myCode);
 
-		File myPhoto = new File("myPhoto", ".jpd", 400, superFolder);
+		File myPhoto = new File("myPhoto", FileExtensionType.JPG, 400, superFolder);
 		DBHelper.save(myPhoto);
 
-		File myJunkFile = new File("JunkFile", ".junk", 200, myJunkFolder);
+		File myJunkFile = new File("JunkFile", FileExtensionType.TXT, 200, myJunkFolder);
 		DBHelper.save(myJunkFile);
 
 		// Test delete
