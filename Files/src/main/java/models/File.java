@@ -11,13 +11,13 @@ public class File {
 	private String name;
 	private String extension;
 	private int size;
-	private String folder;
+	private Folder folder;
 
 
 	public File() {
 	}
 
-	public File(String name, String extension, int size, String folder) {
+	public File(String name, String extension, int size, Folder folder) {
 		this.name = name;
 		this.extension = extension;
 		this.size = size;
@@ -62,12 +62,13 @@ public class File {
 		this.size = size;
 	}
 
-	@Column(name = "folder")
-	public String getFolder() {
+	@ManyToOne
+	@JoinColumn(name = "folder_id", nullable = false)
+	public Folder getFolder() {
 		return folder;
 	}
 
-	public void setFolder(String folder) {
+	public void setFolder(Folder folder) {
 		this.folder = folder;
 	}
 
